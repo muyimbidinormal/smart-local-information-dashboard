@@ -8,7 +8,7 @@ Developed and maintained under the **Forin Tech Solutions** brand.
 
 ## Live Demo
 
-Explore the live Smart Local Information Dashboard here: [View Live Application](YOUR_VERCEL_DEPLOYMENT_URL).
+Explore the live Smart Local Information Dashboard here: [View Live Application](https://smart-local-information-dashboard.vercel.app/).
 
 ---
 

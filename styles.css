@@ -1,3 +1,4 @@
+
 /* ===================================================
    FORIN TECH SOLUTIONS - PREMIUM GLASSMORPHIC DASHBOARD
    Consolidated Clean Stylesheet with Mascot & Dynamic Greeting
@@ -823,11 +824,15 @@ body {
     gap: 10px;
 }
 
-.col svg {
+/* Scalable and consistent styling for atmospheric detail icons (local SVGs or vector elements) */
+.col svg,
+.col img,
+.detail-icon {
     width: 32px;
     height: 32px;
-    stroke: var(--brand-emerald);
+    object-fit: contain;
     flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .humidity, .wind {

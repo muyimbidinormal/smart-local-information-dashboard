@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +95,7 @@
                         <!-- Canvas renders auto-chroma-keyed transparent cutout of the frog -->
                         <canvas id="mascotCanvas" class="mascot-canvas" width="220" height="340" aria-label="Forin Tech Dancing Mascot Frog"></canvas>
                         <!-- Fallback image retains full visual fidelity in case canvas is constrained -->
-                        <img id="mascotImg" src="frog.png" alt="Forin Tech Dancing Mascot Frog" class="mascot-raw-img">
+                        <img id="mascotImg" src="images/frog.png" alt="Forin Tech Dancing Mascot Frog" class="mascot-raw-img">
                     </div>
                     <!-- Dynamic rhythmic floor shadow -->
                     <div class="mascot-shadow" id="mascotShadow"></div>
@@ -177,18 +178,14 @@
 
                 <div class="details">
                     <div class="col">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                        </svg>
+                        <img src="images/humidity.svg" alt="Humidity percentage icon" class="detail-icon" width="32" height="32">
                         <div>
                             <p class="humidity" id="humidityDisplay">--%</p>
                             <p>Humidity</p>
                         </div>
                     </div>
                     <div class="col">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
-                        </svg>
+                        <img src="images/wind.svg" alt="Wind speed metric icon" class="detail-icon" width="32" height="32">
                         <div>
                             <p class="wind" id="windDisplay">-- km/h</p>
                             <p>Wind Speed</p>

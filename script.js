@@ -1,3 +1,4 @@
+
 /**
  * Forin Tech Solutions • Smart Local Information Dashboard
  * Complete Modular Application Script with Dynamic Greeting & Dancing Mascot
@@ -378,20 +379,31 @@ const WEATHER_ICONS = {
     Mist: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g stroke='%23cbd5e1' stroke-width='3' stroke-linecap='round'><line x1='16' y1='26' x2='48' y2='26'/><line x1='12' y1='34' x2='52' y2='34'/><line x1='18' y1='42' x2='46' y2='42'/></g></svg>"
 };
 
+/**
+ * Robust Weather Condition Mapper:
+ * Directly maps primary condition strings and OpenWeather Group 7xx atmospheric events
+ * to existing local SVGs in images/, with fail-safe inline SVG fallbacks.
+ */
 function getWeatherIcon(mainCondition) {
     const localMap = {
         Clear: "images/clear-sun.svg",
         Clouds: "images/clouds.svg",
         Rain: "images/rain.svg",
         Drizzle: "images/drizzle.svg",
+        Thunderstorm: "images/thunderstorm.svg",
+        Snow: "images/snow.svg",
         Mist: "images/mist.svg",
         Smoke: "images/mist.svg",
         Haze: "images/mist.svg",
+        Dust: "images/mist.svg",
         Fog: "images/mist.svg",
-        Snow: "images/snow.svg"
+        Sand: "images/mist.svg",
+        Ash: "images/mist.svg",
+        Squall: "images/wind.svg",
+        Tornado: "images/wind.svg"
     };
 
-    const fallback = WEATHER_ICONS[mainCondition] || WEATHER_ICONS.Clouds;
+    const fallback = WEATHER_ICONS[mainCondition] || WEATHER_ICONS.Mist || WEATHER_ICONS.Clouds;
     return {
         primary: localMap[mainCondition] || fallback,
         fallback: fallback
