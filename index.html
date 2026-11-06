@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forin Tech Solutions • Smart Local Information Dashboard</title>
+    
+    <!-- ================= OFFICIAL FORIN TECH SOLUTIONS FAVICON ================= -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='fg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2310b981'/><stop offset='100%25' stop-color='%23059669'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='%230b1322'/><g transform='translate(10, 8)'><path d='M 38 12 C 55 12 72 17 78 27 C 62 27 50 32 44 40 L 44 48 C 54 48 64 45 74 41 C 70 53 58 59 44 59 L 44 76 C 36 76 33 66 33 50 C 33 28 34 12 38 12 Z' fill='%230c243c'/><path d='M 38 12 C 56 12 73 17 79 27 C 63 27 50 31 43 37 C 37 31 34 22 38 12 Z' fill='url(%23fg)'/><path d='M 12 34 H 26 M 26 34 L 38 48 H 52' fill='none' stroke='%2310b981' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><circle cx='12' cy='34' r='4' fill='%230b1322' stroke='%2310b981' stroke-width='3.5'/><path d='M 8 46 H 24 M 24 46 L 33 55 H 48' fill='none' stroke='%2310b981' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><circle cx='8' cy='46' r='4' fill='%230b1322' stroke='%2310b981' stroke-width='3.5'/><path d='M 14 65 H 22 M 22 65 L 34 57' fill='none' stroke='%2310b981' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><circle cx='14' cy='65' r='4' fill='%230b1322' stroke='%2310b981' stroke-width='3.5'/></g></svg>">
+    
+    <!-- External Consolidated Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- External Modular JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- ================= VIBRANT DYNAMIC CROSSFADING BACKGROUND ================= -->
+    <div class="bg-backdrop" id="bgBackdrop" aria-hidden="true">
+        <div class="bg-layer active" id="bgLayer1"></div>
+        <div class="bg-layer" id="bgLayer2"></div>
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- ================= BRAND NAVIGATION HEADER ================= -->
+    <header class="main-brand-header">
+        <div class="brand-container">
+            <div class="brand-logo-wrap">
+                <!-- Refined Vector Replica: FORIN as One Unified Word -->
+                <svg class="brand-logo-svg" viewBox="0 0 540 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Forin Tech Solutions Logo">
+                    <defs>
+                        <linearGradient id="ftsGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#10B981"/>
+                            <stop offset="60%" stop-color="#059669"/>
+                            <stop offset="100%" stop-color="#047857"/>
+                        </linearGradient>
+                        <linearGradient id="ftsDarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0F2438"/>
+                            <stop offset="100%" stop-color="#081726"/>
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Emblem Left (F-circuit emblem) -->
+                    <g transform="translate(14, 8) scale(1.15)">
+                        <path d="M 46 16 C 68 16 94 22 104 35 C 80 35 63 42 56 52 L 56 61 C 70 61 84 57 98 52 C 92 68 76 76 56 76 L 56 100 C 46 100 42 88 42 66 C 42 36 43 16 46 16 Z" fill="url(#ftsDarkGrad)"/>
+                        <path d="M 46 16 C 68 16 94 22 104 35 C 82 35 64 41 55 50 C 47 40 43 28 46 16 Z" fill="url(#ftsGreenGrad)"/>
+                        
+                        <path d="M 16 45 H 33 L 49 61 H 68" fill="none" stroke="#10B981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="16" cy="45" r="5" fill="#ffffff" stroke="#10B981" stroke-width="4"/>
+
+                        <path d="M 10 60 H 30 L 42 72 H 62" fill="none" stroke="#10B981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="10" cy="60" r="5" fill="#ffffff" stroke="#10B981" stroke-width="4"/>
+
+                        <path d="M 18 83 H 28 L 44 72" fill="none" stroke="#10B981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="18" cy="83" r="5" fill="#ffffff" stroke="#10B981" stroke-width="4"/>
+                    </g>
+                    
+                    <!-- Refined Typography: FORIN as One Continuous Word -->
+                    <g transform="translate(148, 48)">
+                        <!-- "FORIN" rendered continuously with trademark leaf centered above the "I" -->
+                        <text x="0" y="46" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-weight="900" font-size="44" fill="#0F2438" letter-spacing="-0.3">FOR</text>
+                        <text x="91" y="46" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-weight="900" font-size="44" fill="#0F2438">I</text>
+                        <path d="M 96 11 C 96 11 106 13 108 20 C 108 25 103 28 98 27 C 94 26 94 18 96 11 Z" fill="url(#ftsGreenGrad)"/>
+                        <text x="107" y="46" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-weight="900" font-size="44" fill="#0F2438" letter-spacing="-0.3">N</text>
+                        
+                        <!-- Space followed by "TECH" -->
+                        <text x="156" y="46" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-weight="900" font-size="44" fill="#0F2438" letter-spacing="1">TECH</text>
+                        
+                        <!-- Subtitle: SOLUTIONS with balanced emerald accent lines -->
+                        <line x1="2" y1="67" x2="52" y2="67" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+                        <text x="64" y="73" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-weight="700" font-size="17" fill="#10B981" letter-spacing="6">SOLUTIONS</text>
+                        <line x1="262" y1="67" x2="312" y2="67" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="brand-header-meta">
+                <div class="brand-badge-live">
+                    <span class="live-pulse"></span>
+                    <span>LIVE INTELLIGENCE</span>
+                </div>
+                <div class="header-clock" id="headerLiveClock">--:-- --</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= WELCOME BANNER & DANCING MASCOT ================= -->
+    <section class="welcome-banner" id="welcomeBanner" aria-label="Daily Welcome Greeting and Dashboard Mascot">
+        <div class="welcome-container">
+            <!-- Dancing Frog Mascot Interactive Stage -->
+            <div class="mascot-interactive-box" id="mascotContainer" role="button" tabindex="0" title="Click or tap to make our mascot dance!">
+                <div class="mascot-stage dancing" id="mascotStage">
+                    <div class="mascot-figure" id="mascotFigure">
+                        <!-- Canvas renders auto-chroma-keyed transparent cutout of the frog -->
+                        <canvas id="mascotCanvas" class="mascot-canvas" width="220" height="340" aria-label="Forin Tech Dancing Mascot Frog"></canvas>
+                        <!-- Fallback image retains full visual fidelity in case canvas is constrained -->
+                        <img id="mascotImg" src="frog.png" alt="Forin Tech Dancing Mascot Frog" class="mascot-raw-img">
+                    </div>
+                    <!-- Dynamic rhythmic floor shadow -->
+                    <div class="mascot-shadow" id="mascotShadow"></div>
+                </div>
+                <!-- Interactive Speech Bubble -->
+                <div class="mascot-speech" id="mascotSpeech">Ribbit! Let's conquer today! 🐸✨</div>
+            </div>
+
+            <!-- Dynamic Time-Based Greeting Content -->
+            <div class="welcome-text-content">
+                <div class="welcome-meta-pill">
+                    <span class="welcome-sparkle-dot"></span>
+                    <span id="greetingPeriodTag">LOCAL INTELLIGENCE BRIEF</span>
+                </div>
+                <h1 class="welcome-heading" id="welcomeHeading">Good afternoon! 🌤️</h1>
+                <p class="welcome-message" id="welcomeMessage">Hope your day is going wonderfully!</p>
+            </div>
+
+            <!-- Interactive Action Trigger -->
+            <div class="welcome-action-group">
+                <button class="dance-action-btn" id="danceActionBtn" aria-label="Trigger mascot dance animation">
+                    <span class="btn-groove-icon">🕺</span>
+                    <span id="danceBtnText">Dance!</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MAIN 3-CARD DASHBOARD ================= -->
+    <main class="dashboard-wrapper">
+
+        <!-- ================= CARD 1: WEATHER ================= -->
+        <section class="card weather-card" aria-label="Current Weather and Forecast">
+            <div class="top-bar">
+                <div class="location-status-badge">
+                    <span class="location-dot"></span>
+                    <span id="locationStatus">Kampala</span>
+                </div>
+                <button class="unit-toggle" id="unitToggle" aria-label="Switch temperature units between Celsius and Fahrenheit">°F</button>
+            </div>
+
+            <div class="search">
+                <input type="text" placeholder="Enter city name..." spellcheck="false" id="cityInput" aria-label="City search input">
+                <button id="locationBtn" class="icon-btn" title="Use my current GPS location" aria-label="Use current location">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </button>
+                <button id="searchBtn" class="icon-btn" title="Search weather" aria-label="Submit search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Retrieving atmospheric data...</p>
+            </div>
+
+            <div class="error" id="weatherError">
+                <p id="errorMessage">City not found. Please try another location.</p>
+            </div>
+
+            <div class="weather" id="weatherContent">
+                <div class="weather-icon-wrapper">
+                    <img src="" class="weather-icon" id="mainWeatherIcon" alt="Weather condition icon">
+                </div>
+                <div class="weather-condition-badge" id="conditionBadge">Clear Sky</div>
+                <h1 class="temp" id="tempDisplay">24°C</h1>
+                <h2 class="city" id="cityNameDisplay">Kampala, UG</h2>
+
+                <div class="temp-range">
+                    <span id="tempRange">H: --° L: --°</span>
+                    <span class="separator">•</span>
+                    <span id="feelsLike">Feels like --°</span>
+                </div>
+
+                <div class="details">
+                    <div class="col">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                        <div>
+                            <p class="humidity" id="humidityDisplay">--%</p>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+                        </svg>
+                        <div>
+                            <p class="wind" id="windDisplay">-- km/h</p>
+                            <p>Wind Speed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="extra-details">
+                    <div class="sub-col">
+                        <p class="sub-label">Air Quality</p>
+                        <p class="sub-value" id="aqiValue">--</p>
+                    </div>
+                    <div class="sub-col">
+                        <p class="sub-label">Sunrise</p>
+                        <p class="sub-value" id="sunriseTime">--:--</p>
+                    </div>
+                    <div class="sub-col">
+                        <p class="sub-label">Sunset</p>
+                        <p class="sub-value" id="sunsetTime">--:--</p>
+                    </div>
+                </div>
+
+                <div class="forecast-section">
+                    <h3 class="forecast-title">5-Day Forecast</h3>
+                    <div class="forecast-grid" id="forecastGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CARD 2: CURRENCY & CRYPTO CONVERTER ================= -->
+        <section class="card currency-card" aria-label="Currency and Crypto Exchange Calculator">
+            <div class="card-header">
+                <div class="header-title-group">
+                    <svg class="header-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+                        <path d="M12 6v2m0 8v2"/>
+                    </svg>
+                    <h3>Currency & Crypto</h3>
+                </div>
+                <button class="icon-refresh-btn" id="refreshRatesBtn" title="Update fiat and crypto rates" aria-label="Refresh exchange rates">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- LIVE CRYPTO ASSET CARDS SECTION -->
+            <div class="crypto-showcase-section">
+                <div class="crypto-header-line">
+                    <span class="crypto-section-tag">LIVE MARKET</span>
+                    <span class="crypto-status-indicator" id="cryptoPulseText">Live Prices</span>
+                </div>
+                <div class="crypto-cards-grid">
+                    <!-- BTC CARD -->
+                    <div class="crypto-card" id="cardBtc" role="button" tabindex="0" title="Quick-load BTC into converter">
+                        <div class="crypto-card-top">
+                            <div class="crypto-identity">
+                                <span class="crypto-icon-badge btc-badge">₿</span>
+                                <div>
+                                    <h4 class="crypto-name">Bitcoin</h4>
+                                    <span class="crypto-symbol">BTC</span>
+                                </div>
+                            </div>
+                            <span class="crypto-change-pill" id="btcChangePill">--%</span>
+                        </div>
+                        <div class="crypto-card-bottom">
+                            <div class="crypto-usd" id="btcUsdPrice">$ --,---</div>
+                            <div class="crypto-ugx" id="btcUgxPrice">≈ -- UGX</div>
+                        </div>
+                    </div>
+
+                    <!-- ETH CARD -->
+                    <div class="crypto-card" id="cardEth" role="button" tabindex="0" title="Quick-load ETH into converter">
+                        <div class="crypto-card-top">
+                            <div class="crypto-identity">
+                                <span class="crypto-icon-badge eth-badge">Ξ</span>
+                                <div>
+                                    <h4 class="crypto-name">Ethereum</h4>
+                                    <span class="crypto-symbol">ETH</span>
+                                </div>
+                            </div>
+                            <span class="crypto-change-pill" id="ethChangePill">--%</span>
+                        </div>
+                        <div class="crypto-card-bottom">
+                            <div class="crypto-usd" id="ethUsdPrice">$ --,---</div>
+                            <div class="crypto-ugx" id="ethUgxPrice">≈ -- UGX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="converter-box">
+                <div class="input-group">
+                    <label for="currencyAmount">Amount</label>
+                    <input type="number" id="currencyAmount" value="1" min="0" step="any" aria-label="Currency amount">
+                </div>
+
+                <div class="currency-selectors">
+                    <div class="selector-col">
+                        <label for="fromCurrency">From</label>
+                        <select id="fromCurrency" class="currency-dropdown" aria-label="Source Currency">
+                            <optgroup label="Cryptocurrency">
+                                <option value="BTC">₿ BTC - Bitcoin</option>
+                                <option value="ETH">Ξ ETH - Ethereum</option>
+                            </optgroup>
+                            <optgroup label="Traditional Fiat">
+                                <option value="USD" selected>USD - US Dollar</option>
+                                <option value="UGX">UGX - Ugandan Shilling</option>
+                                <option value="KES">KES - Kenyan Shilling</option>
+                                <option value="TZS">TZS - Tanzanian Shilling</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="RWF">RWF - Rwandan Franc</option>
+                                <option value="ZAR">ZAR - South African Rand</option>
+                                <option value="AED">AED - UAE Dirham</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <button class="swap-btn" id="swapCurrenciesBtn" title="Swap currencies" aria-label="Swap currencies">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/>
+                        </svg>
+                    </button>
+
+                    <div class="selector-col">
+                        <label for="toCurrency">To</label>
+                        <select id="toCurrency" class="currency-dropdown" aria-label="Target Currency">
+                            <optgroup label="Cryptocurrency">
+                                <option value="BTC">₿ BTC - Bitcoin</option>
+                                <option value="ETH">Ξ ETH - Ethereum</option>
+                            </optgroup>
+                            <optgroup label="Traditional Fiat">
+                                <option value="UGX" selected>UGX - Ugandan Shilling</option>
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="KES">KES - Kenyan Shilling</option>
+                                <option value="TZS">TZS - Tanzanian Shilling</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="RWF">RWF - Rwandan Franc</option>
+                                <option value="ZAR">ZAR - South African Rand</option>
+                                <option value="AED">AED - UAE Dirham</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="conversion-result-card">
+                    <p class="result-formula" id="resultFormula">1 USD = -- UGX</p>
+                    <h2 class="result-total" id="resultTotal">-- UGX</h2>
+                    <p class="rate-status" id="rateStatus">Loading live fiat & crypto rates...</p>
+                </div>
+            </div>
+
+            <div class="popular-pairs-section">
+                <h4>Popular Regional Pairs</h4>
+                <div class="popular-pairs-grid" id="popularPairsGrid"></div>
+            </div>
+
+            <p class="currency-disclaimer">
+                Verified mid-market & crypto spot prices via Open ER-API & CoinGecko / Coinbase. Commercial bureau and transaction fees may apply.
+            </p>
+        </section>
+
+        <!-- ================= CARD 3: TOP HEADLINES & NEWS ================= -->
+        <section class="card news-card" aria-label="Top News Stories">
+            <div class="card-header">
+                <div class="header-title-group">
+                    <svg class="header-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m4 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9"/>
+                        <path d="M7 8h6m-6 4h6m-6 4h4"/>
+                    </svg>
+                    <h3>Top Stories</h3>
+                </div>
+                <button class="icon-refresh-btn" id="refreshNewsBtn" title="Refresh latest news" aria-label="Refresh news articles">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Category Pills Filter -->
+            <div class="news-categories" role="tablist">
+                <button class="news-chip active" data-category="general" role="tab" aria-selected="true">World</button>
+                <button class="news-chip" data-category="business" role="tab" aria-selected="false">Business</button>
+                <button class="news-chip" data-category="technology" role="tab" aria-selected="false">Tech</button>
+                <button class="news-chip" data-category="sport" role="tab" aria-selected="false">Sports</button>
+            </div>
+
+            <!-- Dynamic News Container -->
+            <div class="news-list" id="newsList" aria-live="polite"></div>
+
+            <p class="news-disclaimer">
+                Verified live RSS news feeds. Click on any card to read the full article on the publisher's portal.
+            </p>
+        </section>
+    </main>
+
+    <!-- ================= BRAND FOOTER ================= -->
+    <footer class="main-brand-footer">
+        <div class="footer-content">
+            <p>© 2026 Forin Tech Solutions-Tebamanyi Tebasobola. All rights reserved.</p>
+            <span class="footer-dot">•</span>
+            <p>Smart Local Information & Financial Intelligence Dashboard</p>
+        </div>
+    </footer>
+</body>
+</html>
